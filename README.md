@@ -18,7 +18,7 @@
 
 1. 下载或克隆本仓库
    ```bash
-   git clone https://github.com/YOUR_USERNAME/x-search-helper.git
+   git clone https://github.com/shayangchinese/x-search-helper.git
    ```
 
 2. 打开 Chrome，访问 `chrome://extensions/`
