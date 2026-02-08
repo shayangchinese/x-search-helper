@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "X Search Helper",
+    "version": "1.0.0",
+    "description": "快速执行X(Twitter)高级搜索 - 中文圈/日区/全球热门内容一键直达",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        },
+        "default_title": "X Search Helper"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+    ]
+}

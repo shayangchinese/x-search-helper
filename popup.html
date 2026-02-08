@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X Search Helper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🔍 X Search Helper</h1>
+      <p class="subtitle">高级搜索一键直达</p>
+    </header>
+
+    <div class="search-box">
+      <input type="text" id="filterInput" placeholder="🔎 搜索查询..." autocomplete="off">
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="zh">🇨🇳 中文圈</button>
+      <button class="tab" data-tab="ja">🇯🇵 日区</button>
+      <button class="tab" data-tab="en">🌍 全球</button>
+    </div>
+
+    <div class="content">
+      <!-- 中文圈 -->
+      <div class="tab-content active" id="tab-zh">
+        <div class="query-card" data-query="lang:zh-cn min_faves:300 within_time:4h">
+          <div class="query-title">🔥 4小时内高质量热议</div>
+          <div class="query-desc">正在爆发的中文热门内容</div>
+          <div class="query-code">lang:zh-cn min_faves:300 within_time:4h</div>
+        </div>
+
+        <div class="query-card" data-query="lang:zh-cn min_faves:10000 -is:retweet">
+          <div class="query-title">👑 24小时万赞神贴</div>
+          <div class="query-desc">华语圈最顶级的内容</div>
+          <div class="query-code">lang:zh-cn min_faves:10000 -is:retweet</div>
+        </div>
+
+        <div class="query-card" data-query='"AI" OR "提示词" OR "大模型" lang:zh-cn min_faves:500'>
+          <div class="query-title">🤖 AI圈爆款内容</div>
+          <div class="query-desc">AI/提示词/大模型热门讨论</div>
+          <div class="query-code">"AI" OR "提示词" OR "大模型" lang:zh-cn min_faves:500</div>
+        </div>
+
+        <div class="query-card" data-query="filter:images lang:zh-cn min_faves:500 within_time:12h">
+          <div class="query-title">📸 12小时热门图片</div>
+          <div class="query-desc">带图的中文热门帖子</div>
+          <div class="query-code">filter:images lang:zh-cn min_faves:500 within_time:12h</div>
+        </div>
+
+        <div class="query-card" data-query='"关键词" -filter:replies -is:retweet min_faves:100'>
+          <div class="query-title">📝 高质量长贴原创</div>
+          <div class="query-desc">排除回复，只看原创内容</div>
+          <div class="query-code">"关键词" -filter:replies -is:retweet min_faves:100</div>
+        </div>
+      </div>
+
+      <!-- 日区 -->
+      <div class="tab-content" id="tab-ja">
+        <div class="query-card" data-query="lang:ja min_faves:500 within_time:1h -is:retweet">
+          <div class="query-title">🚀 1小时内刚起飞</div>
+          <div class="query-desc">日区蓝V抢热评神技</div>
+          <div class="query-code">lang:ja min_faves:500 within_time:1h -is:retweet</div>
+        </div>
+
+        <div class="query-card" data-query="lang:ja min_faves:2000 filter:images within_time:4h">
+          <div class="query-title">🎨 4小时热门图片</div>
+          <div class="query-desc">点赞最高的视觉内容</div>
+          <div class="query-code">lang:ja min_faves:2000 filter:images within_time:4h</div>
+        </div>
+
+        <div class="query-card" data-query='"なにか" OR "最高" lang:ja min_faves:3000'>
+          <div class="query-title">💬 社会民生槽点</div>
+          <div class="query-desc">极易产生共鸣的内容</div>
+          <div class="query-code">"なにか" OR "最高" lang:ja min_faves:3000</div>
+        </div>
+
+        <div class="query-card" data-query="#ポケモン OR #イラスト lang:ja min_faves:5000 within_time:24h">
+          <div class="query-title">🎌 二次元动向</div>
+          <div class="query-desc">24小时最热门的动漫内容</div>
+          <div class="query-code">#ポケモン OR #イラスト lang:ja min_faves:5000 within_time:24h</div>
+        </div>
+
+        <div class="query-card" data-query='"資産運用" OR "新NISA" lang:ja min_faves:500'>
+          <div class="query-title">💰 投资理财讨论</div>
+          <div class="query-desc">日本理财领域高质量内容</div>
+          <div class="query-code">"資産運用" OR "新NISA" lang:ja min_faves:500</div>
+        </div>
+      </div>
+
+      <!-- 全球/美区 -->
+      <div class="tab-content" id="tab-en">
+        <div class="query-card" data-query='"AI" OR "ChatGPT" lang:en min_faves:5000 within_time:12h'>
+          <div class="query-title">🤖 全球AI顶级神贴</div>
+          <div class="query-desc">12小时内AI领域热门</div>
+          <div class="query-code">"AI" OR "ChatGPT" lang:en min_faves:5000 within_time:12h</div>
+        </div>
+
+        <div class="query-card" data-query="lang:en min_faves:1000 filter:native_video within_time:4h">
+          <div class="query-title">🎬 4小时疯传视频</div>
+          <div class="query-desc">美区高权重热门视频</div>
+          <div class="query-code">lang:en min_faves:1000 filter:native_video within_time:4h</div>
+        </div>
+
+        <div class="query-card" data-query='"Investing" OR "SPY" lang:en min_faves:2000'>
+          <div class="query-title">📈 金融投资观点</div>
+          <div class="query-desc">全球金融大V最新高赞</div>
+          <div class="query-code">"Investing" OR "SPY" lang:en min_faves:2000</div>
+        </div>
+
+        <div class="query-card" data-query='"the" OR "の" OR "了" min_faves:5000 -is:retweet within_time:12h'>
+          <div class="query-title">🌐 全球最火原创</div>
+          <div class="query-desc">4小时内全语种热门内容</div>
+          <div class="query-code">"the" OR "の" OR "了" min_faves:5000 -is:retweet within_time:12h</div>
+        </div>
+
+        <div class="query-card" data-query="lang:en min_faves:10000 -filter:links within_time:12h">
+          <div class="query-title">📖 万赞技术干货</div>
+          <div class="query-desc">12小时内英文技术贴</div>
+          <div class="query-code">lang:en min_faves:10000 -filter:links within_time:12h</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>点击卡片直接在 X 中搜索</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
